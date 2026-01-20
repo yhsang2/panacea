@@ -11,7 +11,7 @@ medical guidance suitable for hospital PoCs, internal ventures, and early valida
 
 UI (Result)
 ------------------
-- Users can input their symptoms to receive an assessment and guidance on appropriate next actions.
+Users can input their symptoms to receive an assessment and guidance on appropriate next actions.
 <img width="440" height="1154" alt="작업 결과01" src="https://github.com/user-attachments/assets/5b70120c-59a9-4878-8e22-4552b04956f6" />
 
 Project Philosophy
