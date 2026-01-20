@@ -2,6 +2,7 @@
 
 ## 포함 기능
 - Rule-based Triage (규칙 기반) + **Rule weight / confidence score**
+
 - PubMed RAG (PoC용 Mock 데이터) 기반 참고 문헌 노출
 - 모바일 PoC UI (frontend/index.html)
 
@@ -18,6 +19,7 @@ uvicorn main:app --reload
 
 ### 2) Frontend
 `frontend/index.html` 파일을 브라우저(또는 iOS WebView)에서 여세요.
+<img width="440" height="1154" alt="작업 결과01" src="https://github.com/user-attachments/assets/5b70120c-59a9-4878-8e22-4552b04956f6" />
 
 ## 응답 필드
 - `confidence`: 0~1 범위의 **휴리스틱 신뢰 지표** (진단 확률 아님)
