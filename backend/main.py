@@ -1,4 +1,5 @@
 from typing import Any, Dict, List
+import json
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -44,7 +45,12 @@ def triage(req: SymptomRequest):
     triage_result = rule_based_triage(req.symptoms, include_candidates=True)
 
     # PubMed RAG (mock)
-    papers = search_pubmed(triage_result["condition_key"]) or []
+    papers = search_pubmed(
+        triage_result["condition_key"],
+        symptoms_text=req.symptoms,
+        evidence=triage_result.get("evidence", {}),  # ✅ dict OK
+        top_k=5
+    ) or []
     for p in papers:
         if isinstance(p, dict) and "url" not in p:
             p["url"] = f"https://pubmed.ncbi.nlm.nih.gov/?term={triage_result['condition_key']}"
@@ -61,11 +67,14 @@ def triage(req: SymptomRequest):
         "suspected_conditions": triage_result["suspected_conditions"],
         "recommended_departments": triage_result["recommended_departments"],
         "emergency": triage_result["emergency"],
+        "urgency_level": triage_result["urgency_level"],
+        "action_reason": triage_result["action_reason"],
+        "next_actions": triage_result["next_actions"],
         "confidence": triage_result["confidence"],
         "confidence_label": triage_result["confidence_label"],
         "rule_id": triage_result["rule_id"],
         "evidence": triage_result.get("evidence", {}),
-        "candidates": safe_candidates,  # ✅ 안전한 후보 목록
+        "candidates": safe_candidates,
         "research_basis": papers,
         "llm_explanation": explanation,
         "disclaimer": (
