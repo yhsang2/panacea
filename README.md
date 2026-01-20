@@ -1,4 +1,5 @@
-# 김선생 – AI 증상 리서치, 진료 가이드 (Medical Triage PoC)
+# 김선생 – AI 증상 리서치, 진료 가이드
+- (Medical Triage PoC)
 
 ## 포함 기능
 - Rule-based Triage (규칙 기반) + **Rule weight / confidence score**
