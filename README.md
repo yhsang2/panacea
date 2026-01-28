@@ -76,35 +76,6 @@ What This Service Does
 - Retrieval-augmented explanation
 - Deterministic rule output + external evidence reference
 
----
-
-### Frontend
-- **Type**: Static Web (HTML)
-
-**UI Strategy**
-- Mobile-first
-- Lightweight demo / PoC UI
-
-**Role Separation (Conceptual)**
-- Patient-facing view
-- Clinician / reviewer view
-
----
-
-### System Characteristics
-- **Decision Strategy**: Rule-first, AI-optional
-- **Explainability**: High (rules, confidence, evidence exposed)
-
-**Safety Design**
-- No diagnosis
-- No treatment or prescription
-- Pattern-based medical language only
-
-**Target Usage**
-- Medical triage PoC
-- Hospital / healthcare decision-support prototype
-
-
 What This Service Does NOT Do
 -----------------------------
 
